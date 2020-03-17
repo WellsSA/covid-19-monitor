@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
-import { Container, Monitor, Row, Displayer } from './styles';
+import { Container, Monitor, Row, Displayer, Details, Detail } from './styles';
 
 export default function CovidMonitor() {
   const [imageUrl, setImageUrl] = useState('');
   const [confirmed, setConfirmed] = useState(0);
   const [recovered, setRecovered] = useState(0);
   const [deaths, setDeaths] = useState(0);
+  const [details, setDetails] = useState([]);
 
   useEffect(() => {
     async function loadMonitor() {
@@ -28,6 +29,7 @@ export default function CovidMonitor() {
     if (status !== 200) return;
 
     console.log(data);
+    setDetails(data);
   }
 
   return (
@@ -44,6 +46,11 @@ export default function CovidMonitor() {
           {deaths}
         </Displayer>
       </Row>
+      <Details>
+        {details.map(({ provinceState, countryRegion }, index) => (
+          <Detail key={index}>{`${provinceState} - ${countryRegion}`}</Detail>
+        ))}
+      </Details>
     </Container>
   );
 }

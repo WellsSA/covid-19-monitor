@@ -21,6 +21,7 @@ export const Container = styled.div`
 export const Monitor = styled.img`
   width: 900px;
 `;
+
 export const Row = styled.div`
   display: flex;
   padding: 20px 0;
@@ -47,4 +48,27 @@ export const Displayer = styled.div`
     left: 4px;
     background: #282c33;
   }
+`;
+
+export const Details = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  max-height: 150px;
+  overflow-y: auto;
+`;
+
+export const Detail = styled.div`
+  width: 220px;
+  height: 120px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border-radius: 4px;
+  color: #0ff;
+  border: 2px solid #0ff;
 `;
